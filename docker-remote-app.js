@@ -7,9 +7,9 @@ var docker = new Docker(
   protocol: 'https', //you can enforce a protocol
   host: '192.168.99.100',
   port: process.env.DOCKER_PORT || 2376,
-  ca: fs.readFileSync('C:\\Users\\daoway\\.docker\\machine\\ca.pem'),
-  cert: fs.readFileSync('C:\\Users\\daoway\\.docker\\machine\\cert.pem'),
-  key: fs.readFileSync('C:\\Users\\daoway\\.docker\\machine\\key.pem')
+  ca: fs.readFileSync(process.env.DOCKER_CERT_PATH+'/ca.pem'),
+  cert: fs.readFileSync(process.env.DOCKER_CERT_PATH+'/cert.pem'),
+  key: fs.readFileSync(process.env.DOCKER_CERT_PATH+'/key.pem')
 }
 );
 var containerID = "681753fa046b";
